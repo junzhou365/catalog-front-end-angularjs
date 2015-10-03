@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row title">
+        <h2 class="text-center">{{item.title}}</h2>
+    </div>
+    <div class="row section">
+        <div class="col-md-2">Category:</div>
+        <div class="col-md-10">{{category.name}}</div>
+    </div>
+    <div class="row section">
+        <div class="col-md-2">Description:</div>
+        <div class="col-md-10">{{item.text}}</div>
+    </div>
+    <div class="edit">
+      <span><a ui-sref="updateItem({ cId: category.id, iId: item.id })" class="btn btn-primary btn-sm">update</a></span>
+      <span><a ng-click="deleteItem(item)" class="btn btn-danger btn-sm">delete</a></span>
+    </div>
+    <br>
+</div>

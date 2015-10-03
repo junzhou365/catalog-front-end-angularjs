@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row title">
+        <h2 class="col-md-9 text-center">Category {{category.name}}</h2>
+        <div class="col-md-3 top-edit">
+          <div id="edit">
+            <span><a ui-sref="updateCategory({ cId: category.id })" class="btn btn-primary btn-sm">update</a></span>
+            <a class="btn btn-primary btn-sm" ui-sref="addItem({cId: category.id})">Add Item</a>
+            <span><a ng-click="deleteCategory(category)" class="btn btn-danger btn-sm">delete</a></span>
+          </div>
+        </div>
+    </div>
+    <div class="row">
+        <!--display thumbnails-->
+        <div class="section">
+          <h3 class="text-left">Items</h3>
+
+          <div class="row" ng-repeat="rowItem in items">
+            <div ng-repeat="item in rowItem">
+              <div class="col-md-4 thumbnail text-center">
+                <a ui-sref="item({cId: category.id, iId: item.id})">
+                    <img ng-src="images/{{item.image.path}}" class="img-responsive">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+</div>

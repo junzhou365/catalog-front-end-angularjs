@@ -1,0 +1,44 @@
+<div class="container-fluid main-frame">
+    <div class="row title">
+        <h1 class="text-center">Catalog</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-2 left-side">
+            <div class="row" style="padding-top: 0;">
+                <h2 class="text-center section">Catagories</h2>
+                <ul class="section" style="list-style-type:none">
+                    <li ng-repeat="category in categories">
+                      <span><a ui-sref="category({ cId: category.id })">{{ category.name }}</a></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="row edit">
+                <a ui-sref="addCategory" class="btn btn-primary btn-lg">Add New Category</a>
+            </div>
+        </div>
+
+        <!-- <div class="col-md-10" id="main-content">
+            <div class="row" style="background-color: white;">
+                <h2 class="text-center section">Latest Items</h2>
+            </div>
+            {% for i in range(0, items|length) %}
+                <div class="row" style="background-color: white;">
+                {% for j in range(0, items[i]|length) %}
+                    <div class="col-md-{{12//col_num}} thumbnail-box">
+                        <div class="thumbnail text-center">
+                            {{items[i][j].title}}
+                            <a href="/catalog/category_{{items[i][j].category_id}}/item_{{items[i][j].id}}">
+                                <img src="{{items[i][j].get_img().img_src}}" class="img-responsive">
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+                <div class="row" style="background-color: white;">
+                    <br>
+                </div>
+            {% endfor %}
+        </div> -->
+
+    </div>
+</div>

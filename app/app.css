@@ -1,30 +1,97 @@
-/* app css stylesheet */
-
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+body {
+    font-size: 18px;
+    padding-top: 60px;
 }
 
-.menu:before {
-  content: "[";
+h1 {
+    font-size: 48px;
+    font-weight: bold;
 }
 
-.menu:after {
-  content: "]";
+.title {
+    padding-bottom: 20px;
+    border-bottom-style: solid;
+    border-bottom-width: medium;
+}
+.edit {
+    height: 20px;
+    /*text-align: center;*/
+    /*bottom: 10px;*/
+    font-size: 14px;
+    /*margin-bottom: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;*/
 }
 
-.menu > li {
-  display: inline;
+#edit div {
+  height: 20px;
 }
 
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
+.top-edit {
+    height: 40px;
+    display: flex;
+    align-content:flex-end;
+}
+.main-frame {
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+#main-content {
+    background-color: #F8F8F8;
+    padding: 20px;
+    /*padding-left: 20px;*/
+    /*padding-right: 20px;*/
+    /*padding-top: 20px;*/
+    /*padding-bottom: 20px;*/
+}
+.left-side {
+    padding-top: 20px;
+}
+.section {
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-bottom-color: grey;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.row {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.content {
+    background-color: white;
+    min-height: 400px;
+    padding: 20px;
+}
+
+.thumbnail-box {
+    padding: 5px;
+}
+
+.error {
+    color: red;
+}
+
+.navbar-text {
+    font-size: 14px;
+}
+
+.main-title {
+    display: block;
+    color: #222;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+}
+
+.age {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    color: gray;
+    font-size: 12px;
 }
