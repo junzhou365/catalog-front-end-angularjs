@@ -10,6 +10,5 @@ var renderItems = function(items) {
   }
   if (row != [])
     reformedItems.push(row);
-  console.log(reformedItems);
   return reformedItems;
 };

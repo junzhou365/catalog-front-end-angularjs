@@ -14,11 +14,11 @@ angular.module('catalog.controllers',['ngResource'])
   });
 }])
 
-.controller('catalogController',['$scope', '$state', 'Category', function($scope,$state,Category){
+.controller('catalogController',['$scope', '$state', 'Category', 'Item', function($scope,$state,Category,Item){
   $scope.categories = Category.query();
 }])
 
-.controller('categoryController',['$scope', '$state', '$stateParams', 'Category', 'Item', function($scope, $state, $stateParams, Category, Item){
+.controller('categoryController',['$scope', '$state', '$stateParams', 'Category', 'Item', function($scope,$state,$stateParams,Category,Item){
   if (typeof($stateParams.cId) != 'string') {
     $scope.category = new Category();
   } else {

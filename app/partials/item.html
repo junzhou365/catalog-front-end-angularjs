@@ -1,18 +1,22 @@
 <div class="container">
     <div class="row title">
-        <h2 class="text-center">{{item.title}}</h2>
+        <h2 class="col-md-9 text-center">Item {{item.title}}</h2>
+        <div class="col-md-3 top-edit">
+          <div class="edit">
+            <span><a ui-sref="updateItem({ cId: category.id, iId: item.id })" class="btn btn-primary btn-sm">update</a></span>
+            <span><a ng-click="deleteItem(item)" class="btn btn-danger btn-sm">delete</a></span>
+          </div>
+        </div>
     </div>
     <div class="row section">
-        <div class="col-md-2">Category:</div>
+        <div class="col-md-2">Category</div>
         <div class="col-md-10">{{category.name}}</div>
     </div>
     <div class="row section">
-        <div class="col-md-2">Description:</div>
+        <div class="col-md-2">Description</div>
         <div class="col-md-10">{{item.text}}</div>
     </div>
-    <div class="edit">
-      <span><a ui-sref="updateItem({ cId: category.id, iId: item.id })" class="btn btn-primary btn-sm">update</a></span>
-      <span><a ng-click="deleteItem(item)" class="btn btn-danger btn-sm">delete</a></span>
+    <div class="row section">
+        <img ng-src="images/{{item.image.path}}" class="img-responsive center-block" alt="{{item.image.title}}">
     </div>
-    <br>
 </div>

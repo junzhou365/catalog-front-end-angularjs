@@ -2,7 +2,7 @@
     <div class="row title">
         <h2 class="col-md-9 text-center">Category {{category.name}}</h2>
         <div class="col-md-3 top-edit">
-          <div id="edit">
+          <div class="edit">
             <span><a ui-sref="updateCategory({ cId: category.id })" class="btn btn-primary btn-sm">update</a></span>
             <a class="btn btn-primary btn-sm" ui-sref="addItem({cId: category.id})">Add Item</a>
             <span><a ng-click="deleteCategory(category)" class="btn btn-danger btn-sm">delete</a></span>
