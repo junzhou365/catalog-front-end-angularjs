@@ -19,10 +19,10 @@
         <div class="col-md-10" id="main-content">
             <div class="row" style="background-color: white;">
                 <h2 class="text-center section">Latest Items</h2>
-                <div class="row" ng-repeat="rowItem in items">
+                <div class="row" ng-repeat="rowItem in latestItems">
                   <div ng-repeat="item in rowItem">
-                    <div class="col-md-4 thumbnail text-center">
-                      <a ui-sref="item({cId: category.id, iId: item.id})">
+                    <div class="col-md-3 thumbnail text-center">
+                      <a ui-sref="item({cId: item.category.id, iId: item.id})">
                           <img ng-src="images/{{item.image.path}}" class="img-responsive">
                       </a>
                     </div>

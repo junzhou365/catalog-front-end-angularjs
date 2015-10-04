@@ -1,9 +1,9 @@
-var renderItems = function(items) {
+var renderItems = function(items, column) {
   var reformedItems = []
   var row = [];
   for (var i = 0; i < items.length; i++) {
     row.push(items[i]);
-    if ((i+1) % 3 == 0) {
+    if ((i+1) % column0 == 0) {
       reformedItems.push(row);
       row = [];
     }
