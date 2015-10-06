@@ -16,28 +16,24 @@
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="nav navbar-nav">
-                <a class="navbar-brand" ui-sref="catalog">Catalog</a>
-            </div>
-            <form class="navbar-form navbar-left" role="search" action="/catalog/search" method="GET">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="q" placeholder="Search categories or items">
-                </div>
-                <button type="submit" class="btn btn-default">Search</button>
-            </form>
-            <div class="nav navbar-nav navbar-right">
-            <!-- {% if user %}
-                <a type="button" class="btn btn-default navbar-btn" href="/catalog/logout">Logout</a>
-                <p class="navbar-text">Signed in as {{user.name}}</p>
-            {% else %}
-                <a type="button" class="btn btn-default navbar-btn" href="/catalog/login">Login</a>
-                <a type="button" class="btn btn-default navbar-btn" href="/catalog/signup">Signup</a>
-            {% endif %} -->
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
+  <nav ng-controller="navigation" class="container-fluid navbar navbar-default navbar-fixed-top">
+
+    <div class="nav navbar-nav">
+        <a class="navbar-brand" ui-sref="catalog">Catalog</a>
+    </div>
+    <div class="nav navbar-nav navbar-right">
+    <!-- {% if user %}
+        <a type="button" class="btn btn-default navbar-btn" href="/catalog/logout">Logout</a>
+        <p class="navbar-text">Signed in as {{user.name}}</p>
+    {% else %}
+        <a type="button" class="btn btn-default navbar-btn" href="/catalog/login">Login</a>
+        <a type="button" class="btn btn-default navbar-btn" href="/catalog/signup">Signup</a>
+    {% endif %} -->
+      <li ng-show="!authenticated"><a ui-sref="login">login</a></li>
+      <li ng-show="authenticated"><span>logged in as</span></li>
+      <li ng-show="authenticated"><a ng-click="logout()">logout</a></li>
+    </div><!-- /.navbar-collapse -->
+  </nav>
   <a ui-sref="catalog"></a>
   <div ui-view></div>
 

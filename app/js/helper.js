@@ -3,7 +3,7 @@ var renderItems = function(items, column) {
   var row = [];
   for (var i = 0; i < items.length; i++) {
     row.push(items[i]);
-    if ((i+1) % column0 == 0) {
+    if ((i+1) % column == 0) {
       reformedItems.push(row);
       row = [];
     }

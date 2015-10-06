@@ -1,12 +1,17 @@
 'use strict';
 angular.module('catalog',['ui.router','ui.bootstrap', 'ngResource','catalog.controllers']);
 
-angular.module('catalog').config(function($stateProvider, $urlRouterProvider){
+angular.module('catalog').config(function($stateProvider, $httpProvider){
 
     $stateProvider.state('catalog',{
       url:'/catalog',
       templateUrl:'partials/catalog.html',
       controller:'catalogController'
+    })
+    .state('login', {
+      url:'/login',
+      templateUrl:'partials/login.html',
+      controller:'navigation'
     })
     .state('addCategory', {
       url:'/categories/new',
@@ -24,7 +29,7 @@ angular.module('catalog').config(function($stateProvider, $urlRouterProvider){
       controller:'categoryController'
     })
     .state('addItem', {
-      url:'/categories/:cId/items',
+      url:'/categories/:cId/items/new',
       templateUrl:'partials/itemAdd.html',
       controller:'itemController'
     })
@@ -38,6 +43,8 @@ angular.module('catalog').config(function($stateProvider, $urlRouterProvider){
       templateUrl:'partials/item.html',
       controller:'itemController'
     });
+
+    $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 }).run(function($state){
    $state.go('catalog');
 });

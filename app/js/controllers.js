@@ -23,6 +23,63 @@ angular.module('catalog.controllers',['ngResource'])
   });
 }])
 
+.controller('navigation', ['$rootScope', '$scope', '$http', '$state', function($rootScope,$scope,$http,$state){
+	var authenticate = function(credentials, callback) {
+
+		var headers = credentials ? {
+			authorization : "Basic "
+					+ btoa(credentials.username + ":"
+							+ credentials.password)
+		} : {};
+
+		$http.get('user', {
+			headers : headers
+		}).success(function(data) {
+      console.log(data.name);
+			if (data.name) {
+				$rootScope.authenticated = true;
+			} else {
+				$rootScope.authenticated = false;
+			}
+			callback && callback($rootScope.authenticated);
+		}).error(function() {
+			$rootScope.authenticated = false;
+			callback && callback(false);
+		});
+
+	};
+
+	authenticate();
+
+	$scope.credentials = {};
+	$scope.login = function() {
+		authenticate($scope.credentials, function(authenticated) {
+			if (authenticated) {
+				console.log("Login succeeded");
+				$state.go('catalog');
+				$scope.error = false;
+				$rootScope.authenticated = true;
+			} else {
+				console.log("Login failed");
+				$state.go('login');
+				$scope.error = true;
+				$rootScope.authenticated = false;
+			}
+		})
+	};
+
+  $scope.logout = function() {
+    $http.post('/logout', {}).success(function() {
+      $rootScope.authenticated = false;
+      $state.go('catalog');
+    }).error(function(data) {
+      console.log("Logout failed");
+      $rootScope.authenticated = false;
+    });
+  };
+
+}])
+
 .controller('categoryController',['$scope', '$state', '$stateParams', 'Category', 'Item', function($scope,$state,$stateParams,Category,Item){
   $scope.column = 3
   if (typeof($stateParams.cId) != 'string') {
