@@ -1,10 +1,13 @@
+<div class="alert alert-danger" ng-show="itemDeleted">
+	Please log in to edit.
+</div>
 <div class="container">
     <div class="row title">
         <h2 class="col-md-9 text-center">Item {{item.title}}</h2>
         <div class="col-md-3 top-edit">
           <div class="edit">
-            <span><a ui-sref="updateItem({ cId: category.id, iId: item.id })" class="btn btn-primary btn-sm">update</a></span>
-            <span><a ng-click="deleteItem(item)" class="btn btn-danger btn-sm">delete</a></span>
+            <a ng-show="authenticated" ui-sref="updateItem({ cId: category.id, iId: item.id })" class="btn btn-primary btn-sm">update</a>
+            <a ng-show="authenticated" ng-click="deleteItem(item)" class="btn btn-danger btn-sm">delete</a>
           </div>
         </div>
     </div>

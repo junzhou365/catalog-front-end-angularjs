@@ -1,11 +1,14 @@
+<div class="alert alert-danger" ng-show="itemDeleted">
+	Item has been deleted.
+</div>
 <div class="container">
     <div class="row title">
         <h2 class="col-md-9 text-center">Category {{category.name}}</h2>
         <div class="col-md-3 top-edit">
           <div class="edit">
-            <span><a ui-sref="updateCategory({ cId: category.id })" class="btn btn-primary btn-sm">update</a></span>
-            <a class="btn btn-primary btn-sm" ui-sref="addItem({cId: category.id})">Add Item</a>
-            <span><a ng-click="deleteCategory(category)" class="btn btn-danger btn-sm">delete</a></span>
+            <a ng-show="authenticated" ui-sref="updateCategory({ cId: category.id })" class="btn btn-primary btn-sm">update</a>
+            <a ng-show="authenticated" class="btn btn-primary btn-sm" ui-sref="addItem({cId: category.id})">Add Item</a>
+            <a ng-show="authenticated" ng-click="deleteCategory(category)" class="btn btn-danger btn-sm">delete</a>
           </div>
         </div>
     </div>
@@ -18,13 +21,11 @@
             <div ng-repeat="item in rowItem">
               <div class="col-md-4 thumbnail text-center">
                 <a ui-sref="item({cId: category.id, iId: item.id})">
-                    <img ng-src="images/{{item.image.path}}" class="img-responsive">
+                    <img ng-src="images/{{item.image.path}}" alt="{{ item.title }}" class="img-responsive">
                 </a>
               </div>
             </div>
           </div>
         </div>
     </div>
-
-
 </div>

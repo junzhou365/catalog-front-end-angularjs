@@ -13,6 +13,11 @@ angular.module('catalog').config(function($stateProvider, $httpProvider){
       templateUrl:'partials/login.html',
       controller:'navigation'
     })
+    .state('signup', {
+      url:'/signup',
+      templateUrl:'partials/signup.html',
+      controller:'navigation'
+    })
     .state('addCategory', {
       url:'/categories/new',
       templateUrl:'partials/categoryAdd.html',

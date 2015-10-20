@@ -1,6 +1,7 @@
-<div class="container-fluid main-frame">
+<div ng-controller="catalogController" class="container-fluid main-frame">
+    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)" dismiss-on-timeout="{{alert.timeout}}">{{alert.msg}}</alert>
     <div class="row title">
-        <h1 class="text-center">Catalog</h1>
+        <h1 class="text-center">CATALOG</h1>
     </div>
     <div class="row">
         <div class="col-md-2 left-side">
@@ -13,7 +14,7 @@
                 </ul>
             </div>
             <div class="row edit">
-                <a ui-sref="addCategory" class="btn btn-primary btn-lg">Add New Category</a>
+                <button ng-click="tryAddCategory()" class="btn btn-primary btn-sm">Add New Category</button>
             </div>
         </div>
         <div class="col-md-10" id="main-content">
@@ -21,9 +22,9 @@
                 <h2 class="text-center section">Latest Items</h2>
                 <div class="row" ng-repeat="rowItem in latestItems">
                   <div ng-repeat="item in rowItem">
-                    <div class="col-md-3 thumbnail text-center">
+                    <div class="col-md-{{12 / column}} thumbnail text-center">
                       <a ui-sref="item({cId: item.category.id, iId: item.id})">
-                          <img ng-src="images/{{item.image.path}}" class="img-responsive">
+                          <img ng-src="images/{{item.image.path}}" alt="{{ item.title }}" class="img-responsive">
                       </a>
                     </div>
                   </div>
@@ -32,9 +33,6 @@
                   </div>
                 </div>
             </div>
-
-
-
         </div>
     </div>
 </div>
