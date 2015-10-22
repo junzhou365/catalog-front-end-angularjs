@@ -52,11 +52,13 @@
 </nav>
 
   <a ui-sref="catalog"></a>
-  <div ui-view></div>
+  <div ui-view class="wrap"></div>
 
-  <div class="navbar navbar-default navbar-fixed-bottom">
+  <div class="bottom-decorator">
     <div id="canvasBubbles"></div>
   </div>
+
+
 
   <script>bubblesMain(new Object({
         type : 'linear',

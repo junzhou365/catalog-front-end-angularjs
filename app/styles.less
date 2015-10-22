@@ -56,11 +56,12 @@
 
 @paddingTop:70px;
 @pageFontSize:18px;
-
 @headerFontSize:48px;
-
 @mainPageMargin:15px;
-
+@footerHeight:50px;
+@footerMarginBottom:70px;
+@bottomDecoratorBottom:0px;
+@bottomDecoratorHeight:70px;
 
 body {
     font-size: @pageFontSize;
@@ -97,6 +98,7 @@ a {
 .main-frame {
     margin-left: @mainPageMargin;
     margin-right: @mainPageMargin;
+    margin-bottom: 100px;
 }
 
 #main-content {
@@ -113,6 +115,11 @@ a {
     border-bottom-color: @color-primary-0;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.section-image {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .row {
@@ -154,6 +161,8 @@ a {
 .navbar-default {
   background-color:@color-primary-0;
   color:@color-primary-1;
+  padding-left: 20px;
+  padding-right: 20px;
   .navbar-text {
     color:white;
   }
@@ -184,6 +193,36 @@ a {
   }
 }
 
-#canvasBubbles {
-  height:70px;
+.wrap {
+  margin-bottom: @bottomDecoratorHeight + 20px;
+}
+
+div#canvasBubbles {
+  height:@bottomDecoratorHeight;
+}
+
+.footer {
+  // width: 100%;
+  border-top-width: 1px;
+  border-top-color: @color-primary-1;
+  border-top-style: solid;
+  margin-bottom: @footerMarginBottom;
+  margin-left: 20%;
+  margin-right: 20%;
+  height: @footerHeight;
+  color:@color-secondary-2-0;
+  text-align: center;
+  font-size: 14px;
+
+  p {
+    padding-top: 20px;
+  }
+}
+
+.bottom-decorator {
+  position: fixed;
+  bottom: @bottomDecoratorBottom;
+  width: 100%;
+  height: @bottomDecoratorHeight;
+  background-color: @color-primary-0;
 }
