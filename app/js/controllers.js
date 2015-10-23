@@ -3,13 +3,13 @@
 angular.module('catalog.controllers',['ngResource', 'ui.bootstrap'])
 
 .factory('Category', ['$resource', function($resource) {
-  return $resource('/api/categories/:cId', null, {
+  return $resource('/catalog/api/categories/:cId', null, {
     'update': {method: 'PUT'}
   });
 }])
 
 .factory('Item', ['$resource', function($resource) {
-  return $resource('/api/categories/:cId/items/:iId', null, {
+  return $resource('/catalog/api/categories/:cId/items/:iId', null, {
     'update': {method: 'PUT'}
   });
 }])
@@ -23,7 +23,7 @@ angular.module('catalog.controllers',['ngResource', 'ui.bootstrap'])
   };
 
   $scope.categories = Category.query();
-  $http.get('/api/getLatestItems').then(function(response){
+  $http.get('/catalog/api/getLatestItems').then(function(response){
 
     $scope.latestItems = renderItems(response.data, $scope.column);
   });

@@ -4,7 +4,7 @@ angular.module('catalog',['ui.router','ui.bootstrap', 'ngResource','catalog.cont
 angular.module('catalog').config(function($stateProvider, $httpProvider){
 
     $stateProvider.state('catalog',{
-      url:'/catalog',
+      url:'/main',
       templateUrl:'partials/catalog.html',
       controller:'catalogController'
     })
