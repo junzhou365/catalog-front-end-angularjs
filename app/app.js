@@ -8,6 +8,11 @@ angular.module('catalog').config(function($stateProvider, $httpProvider){
       templateUrl:'partials/catalog.html',
       controller:'catalogController'
     })
+    .state('about', {
+      url:'/about',
+      templateUrl:'partials/about.html',
+      controller:'catalogController'
+    })
     .state('login', {
       url:'/login',
       templateUrl:'partials/login.html',

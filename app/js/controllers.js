@@ -101,8 +101,7 @@ angular.module('catalog.controllers',['ngResource', 'ui.bootstrap'])
     $scope.loginOrRegister = true;
     var user = $scope.credentials;
     user.enabled = true;
-    console.log(user);
-    $http.post('/signup', user).success(function() {
+    $http.post('/catalog/signup', user).success(function() {
       $scope.login();
       $state.go('catalog');
     }).error(function(data) {
